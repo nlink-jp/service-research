@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ResearchReport",
+  "description": "Structured product/service research report. Field structure is carried over from the product-research CLI (Pydantic models); nullable fields were Optional[str] there. Free-text fields where nothing was found hold \"不明\" (ja) / \"unknown\" (en) — never a guess.",
+  "type": "object",
+  "required": [
+    "product_name",
+    "research_date",
+    "natural_language_summary",
+    "overview",
+    "terms_of_service",
+    "cautions",
+    "user_data_handling",
+    "data_security",
+    "ai_agent_behavior",
+    "overall_risk_level",
+    "risk_assessment_notes",
+    "sources"
+  ],
+  "properties": {
+    "product_name": { "type": "string", "description": "調査対象の製品・サービス名" },
+    "research_date": { "type": "string", "format": "date", "description": "調査実施日 (YYYY-MM-DD)" },
+    "natural_language_summary": {
+      "type": "string",
+      "description": "Markdown 形式の日本語(または --lang en なら英語)レポート本文。## 製品概要 / ## 主要機能 / ## 利用規約の要点 / ## プライバシー・データ取り扱い / ## セキュリティ状況 / ## AI エージェント動作と制御 / ## ユーザーへの注意事項 / ## 総合評価 の見出しを含める"
+    },
+    "overview": {
+      "type": "object",
+      "required": ["description", "category", "provider", "main_features", "pricing", "target_users"],
+      "properties": {
+        "description": { "type": "string", "description": "製品・サービスの説明" },
+        "category": { "type": "string", "description": "カテゴリ (例: コラボレーションツール、クラウドストレージ)" },
+        "provider": { "type": "string", "description": "提供企業・組織名" },
+        "website": { "type": ["string", "null"], "description": "公式サイト URL" },
+        "main_features": { "type": "array", "items": { "type": "string" }, "description": "主要機能のリスト" },
+        "pricing": {
+          "type": "object",
+          "required": ["model", "tiers", "free_tier_available", "notes"],
+          "properties": {
+            "model": { "type": "string", "description": "料金体系 (例: サブスクリプション、フリーミアム、買い切り)" },
+            "tiers": { "type": "array", "items": { "type": "string" }, "description": "利用可能なプランの一覧" },
+            "free_tier_available": { "type": "boolean", "description": "無料プランの有無" },
+            "notes": { "type": "string", "description": "料金に関する補足情報" }
+          }
+        },
+        "target_users": { "type": "string", "description": "主な対象ユーザー層" }
+      }
+    },
+    "terms_of_service": {
+      "type": "object",
+      "required": ["summary", "key_points", "user_obligations", "restrictions", "intellectual_property", "termination_conditions"],
+      "properties": {
+        "summary": { "type": "string", "description": "利用規約の要約" },
+        "key_points": { "type": "array", "items": { "type": "string" }, "description": "重要な条項のリスト" },
+        "user_obligations": { "type": "array", "items": { "type": "string" }, "description": "ユーザーの義務・責任" },
+        "restrictions": { "type": "array", "items": { "type": "string" }, "description": "禁止事項・制限事項" },
+        "intellectual_property": { "type": "string", "description": "知的財産権に関する規定" },
+        "termination_conditions": { "type": "string", "description": "アカウント停止・解約条件" },
+        "governing_law": { "type": ["string", "null"], "description": "準拠法・管轄裁判所" },
+        "last_updated": { "type": ["string", "null"], "description": "規約の最終更新日" },
+        "url": { "type": ["string", "null"], "description": "利用規約 URL" }
+      }
+    },
+    "cautions": { "type": "array", "items": { "type": "string" }, "description": "ユーザーへの重要な注意事項・警告" },
+    "user_data_handling": {
+      "type": "object",
+      "required": ["data_collected", "data_usage_purposes", "third_party_sharing", "data_retention_period", "user_rights", "opt_out_options", "children_data_policy", "notable_concerns"],
+      "properties": {
+        "data_collected": { "type": "array", "items": { "type": "string" }, "description": "収集されるユーザーデータの種類" },
+        "data_usage_purposes": { "type": "array", "items": { "type": "string" }, "description": "データ利用目的" },
+        "third_party_sharing": { "type": "array", "items": { "type": "string" }, "description": "データ共有先の第三者・パートナー" },
+        "data_retention_period": { "type": "string", "description": "データ保持期間" },
+        "user_rights": { "type": "array", "items": { "type": "string" }, "description": "ユーザーのデータ権利 (GDPR・CCPA 等)" },
+        "opt_out_options": { "type": "array", "items": { "type": "string" }, "description": "データ収集・利用のオプトアウト方法" },
+        "children_data_policy": { "type": "string", "description": "未成年者データに関するポリシー" },
+        "privacy_policy_url": { "type": ["string", "null"], "description": "プライバシーポリシー URL" },
+        "notable_concerns": { "type": "array", "items": { "type": "string" }, "description": "プライバシー上の懸念点・注意事項" }
+      }
+    },
+    "data_security": {
+      "type": "object",
+      "required": ["encryption_at_rest", "encryption_in_transit", "security_certifications", "compliance_frameworks", "data_storage_location", "access_controls", "incident_response", "known_breaches", "restrictions_for_sensitive_data", "vulnerability_disclosure_program"],
+      "properties": {
+        "encryption_at_rest": { "type": "string", "description": "保存データの暗号化方式" },
+        "encryption_in_transit": { "type": "string", "description": "転送データの暗号化方式" },
+        "security_certifications": { "type": "array", "items": { "type": "string" }, "description": "取得済みセキュリティ認証 (SOC 2, ISO 27001 等)" },
+        "compliance_frameworks": { "type": "array", "items": { "type": "string" }, "description": "準拠する規制・フレームワーク (GDPR, HIPAA, CCPA 等)" },
+        "data_storage_location": { "type": "string", "description": "データの保存地域・データセンター所在地" },
+        "access_controls": { "type": "string", "description": "アクセス制御の仕組み" },
+        "incident_response": { "type": "string", "description": "セキュリティインシデント対応方針" },
+        "known_breaches": { "type": "array", "items": { "type": "string" }, "description": "既知のデータ漏洩・セキュリティインシデント" },
+        "restrictions_for_sensitive_data": { "type": "array", "items": { "type": "string" }, "description": "機密データ (医療・金融・個人識別情報など) 利用時の制限・制約事項" },
+        "vulnerability_disclosure_program": { "type": "boolean", "description": "脆弱性開示プログラムの有無" }
+      }
+    },
+    "ai_agent_behavior": {
+      "type": "object",
+      "required": ["has_autonomous_behavior", "autonomous_capabilities", "action_scope", "user_control_mechanisms", "approval_required_actions", "audit_log_available", "rollback_capability", "notable_risks"],
+      "properties": {
+        "has_autonomous_behavior": { "type": "boolean", "description": "目的達成のために自律的に実行計画を構築・実行する AI エージェント的動作の有無" },
+        "autonomous_capabilities": { "type": "array", "items": { "type": "string" }, "description": "自律動作の具体的な能力 (例: タスク分解、ツール呼び出し、外部サービス操作、コード実行)" },
+        "action_scope": { "type": "string", "description": "自律動作が及ぶ範囲 (例: 読み取り専用、ファイル操作、外部 API 呼び出し、メール送信等)" },
+        "user_control_mechanisms": { "type": "array", "items": { "type": "string" }, "description": "自律動作を制御・監視・介入する手段 (例: 承認フロー、一時停止、スコープ制限)" },
+        "approval_required_actions": { "type": "array", "items": { "type": "string" }, "description": "実行前にユーザー承認が必要なアクション" },
+        "audit_log_available": { "type": "boolean", "description": "自律動作の実行ログ・監査ログの提供有無" },
+        "rollback_capability": { "type": "string", "description": "自律動作の取り消し・ロールバック手段" },
+        "notable_risks": { "type": "array", "items": { "type": "string" }, "description": "自律動作に伴うリスク・懸念点" }
+      }
+    },
+    "overall_risk_level": { "type": "string", "enum": ["low", "medium", "high"], "description": "総合リスクレベル" },
+    "risk_assessment_notes": { "type": "string", "description": "リスク評価の根拠説明" },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "実際に開いて読んだページの URL のみ。読んでいない URL を載せてはならない"
+    }
+  }
+}
