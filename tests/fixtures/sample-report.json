@@ -1,0 +1,75 @@
+{
+  "product_name": "ExampleChat",
+  "research_date": "2026-07-31",
+  "natural_language_summary": "## 製品概要\nExampleChat は Example Corp が提供するチームチャットサービス。\n\n## 主要機能\nチャンネル型メッセージング、ファイル共有、AI アシスタントを備える。\n\n## 利用規約の要点\n商用利用可。リバースエンジニアリングは禁止。\n\n## プライバシー・データ取り扱い\nメッセージ本文は広告目的では利用されないが、利用統計はパートナーと共有される。\n\n## セキュリティ状況\nSOC 2 Type II 取得済み。2024 年に認証情報スタッフィング事案あり（対処済み）。\n\n## AI エージェント動作と制御\nAI アシスタントは読み取り専用の要約機能のみで、自律実行は行わない。\n\n## ユーザーへの注意事項\n無料プランはメッセージ履歴 90 日で削除される。\n\n## 総合評価\n一般的な業務利用には妥当なリスク水準（medium）。",
+  "overview": {
+    "description": "チーム向けチャンネル型チャットサービス",
+    "category": "コラボレーションツール",
+    "provider": "Example Corp",
+    "website": "https://chat.example.com",
+    "main_features": ["チャンネル型メッセージング", "ファイル共有", "AI 要約アシスタント"],
+    "pricing": {
+      "model": "フリーミアム",
+      "tiers": ["Free", "Pro (月額 $8/ユーザー)", "Business (月額 $15/ユーザー)"],
+      "free_tier_available": true,
+      "notes": "年払いで 2 ヶ月分割引"
+    },
+    "target_users": "中小規模の開発チーム"
+  },
+  "terms_of_service": {
+    "summary": "標準的な SaaS 利用規約。商用利用可、再販禁止。",
+    "key_points": ["アカウントは組織単位で管理される", "サービスは現状有姿で提供される"],
+    "user_obligations": ["正確な登録情報の維持", "認証情報の管理責任"],
+    "restrictions": ["リバースエンジニアリングの禁止", "スパム送信の禁止"],
+    "intellectual_property": "ユーザーコンテンツの権利はユーザーに帰属し、運営に必要な範囲のライセンスを Example Corp に許諾する",
+    "termination_conditions": "規約違反時は事前通知なく停止されうる。ユーザーはいつでも解約可能",
+    "governing_law": null,
+    "last_updated": "2026-05-01",
+    "url": "https://chat.example.com/terms"
+  },
+  "cautions": [
+    "無料プランはメッセージ履歴が 90 日で削除される",
+    "利用統計が分析パートナーと共有される"
+  ],
+  "user_data_handling": {
+    "data_collected": ["アカウント情報", "メッセージ本文", "利用統計"],
+    "data_usage_purposes": ["サービス提供", "品質改善"],
+    "third_party_sharing": ["分析パートナー（利用統計のみ）"],
+    "data_retention_period": "アカウント削除後 30 日で完全削除",
+    "user_rights": ["アクセス権 (GDPR)", "削除権 (GDPR)", "開示請求 (APPI)"],
+    "opt_out_options": ["利用統計共有のオプトアウト（設定画面）"],
+    "children_data_policy": "13 歳未満の利用を禁止",
+    "privacy_policy_url": "https://chat.example.com/privacy",
+    "notable_concerns": ["「パートナー」の範囲が具体的に列挙されていない"]
+  },
+  "data_security": {
+    "encryption_at_rest": "AES-256",
+    "encryption_in_transit": "TLS 1.2 以上",
+    "security_certifications": ["SOC 2 Type II"],
+    "compliance_frameworks": ["GDPR", "APPI"],
+    "data_storage_location": "米国およびEU リージョン（選択可）",
+    "access_controls": "SSO (SAML)、ロールベースアクセス制御",
+    "incident_response": "72 時間以内の影響ユーザー通知を公約",
+    "known_breaches": ["2024 年: クレデンシャルスタッフィングによる一部アカウント不正アクセス（MFA 必須化で対処）"],
+    "restrictions_for_sensitive_data": ["医療情報 (PHI) の取り扱いは BAA 締結が必要で Business プラン限定"],
+    "vulnerability_disclosure_program": true
+  },
+  "ai_agent_behavior": {
+    "has_autonomous_behavior": false,
+    "autonomous_capabilities": [],
+    "action_scope": "読み取り専用（チャンネル内容の要約のみ）",
+    "user_control_mechanisms": ["ワークスペース単位で AI 機能を無効化可能"],
+    "approval_required_actions": [],
+    "audit_log_available": true,
+    "rollback_capability": "該当なし",
+    "notable_risks": []
+  },
+  "overall_risk_level": "medium",
+  "risk_assessment_notes": "ポリシー類は整備され SOC 2 も取得済みだが、2024 年の不正アクセス事案と「分析パートナー」の範囲の不明確さから medium と評価。",
+  "sources": [
+    "https://chat.example.com",
+    "https://chat.example.com/terms",
+    "https://chat.example.com/privacy",
+    "https://chat.example.com/security"
+  ]
+}
