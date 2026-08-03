@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- The design record for this skill moved out of the organization ADR log
+  into `docs/{en,ja}/adr/` (0001 agentic research, formerly organization
+  ADR-007), now mirrored in Japanese as well as English. The organization
+  log is for decisions that bind the whole organization; the old number
+  stays reserved there as a redirect.
+
 ## [0.1.0] - 2026-07-31
 
 ### Added

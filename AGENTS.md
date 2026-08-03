@@ -7,7 +7,8 @@ terms of service, privacy policy, data security, AI-agent behavior — by
 reading the primary sources on the web, and emits a schema-validated JSON
 report with a three-tier risk rating plus a compiled Markdown summary.
 Invoked as `/service-research <name>`. Successor to the archived
-product-research CLI (ADR-007); same JSON structure, but research is an
+product-research CLI ([ADR-0001](docs/en/adr/0001-agentic-research.md));
+same JSON structure, but research is an
 agentic loop that actually fetches ToS/privacy pages instead of one
 search-grounded Gemini call.
 

@@ -14,7 +14,7 @@ searches, fetching and reading the actual policy pages, a separate hunt for
 known breaches — and `sources` lists only URLs actually read. The JSON
 structure is unchanged from the CLI, so old and new reports stay comparable.
 No GCP project, ADC, or Vertex AI cost anymore. (Design:
-[ADR-007](https://github.com/nlink-jp/.github/blob/main/adr/007-service-research-skill.md))
+[ADR-0001](docs/en/adr/0001-agentic-research.md))
 
 ## Install
 
@@ -68,7 +68,7 @@ python3 ~/.claude/skills/service-research/scripts/compile.py old-report.json -o 
 ## Documentation
 
 - [Report format specification](service-research/references/report-format.md)
-- [ADR-007 — design decision record](https://github.com/nlink-jp/.github/blob/main/adr/007-service-research-skill.md)
+- [ADR-0001 — design decision record](docs/en/adr/0001-agentic-research.md)
 - [日本語ドキュメント](README.ja.md)
 
 ## Notes

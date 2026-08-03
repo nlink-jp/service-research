@@ -13,7 +13,7 @@ CLI の後継です。CLI は調査を検索グラウンディング付き Gemin
 既知インシデントの独立した検索 — そして `sources` には実際に読んだ URL のみが
 載ります。JSON 構造は CLI と同一で、新旧レポートは直接比較できます。
 GCP プロジェクト・ADC・Vertex AI コストは不要になりました。
-（設計: [ADR-007](https://github.com/nlink-jp/.github/blob/main/adr/007-service-research-skill.md)）
+（設計: [ADR-0001](docs/ja/adr/0001-agentic-research.ja.md)）
 
 ## インストール
 
@@ -67,7 +67,7 @@ python3 ~/.claude/skills/service-research/scripts/compile.py old-report.json -o 
 ## ドキュメント
 
 - [レポートフォーマット仕様](service-research/references/report-format.md)
-- [ADR-007 — 設計決定記録](https://github.com/nlink-jp/.github/blob/main/adr/007-service-research-skill.md)
+- [ADR-0001 — 設計決定記録](docs/ja/adr/0001-agentic-research.ja.md)
 - [English documentation](README.md)
 
 ## 注意
