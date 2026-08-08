@@ -17,17 +17,25 @@ GCP プロジェクト・ADC・Vertex AI コストは不要になりました。
 
 ## インストール
 
-リリース zip から（claude.ai → Settings → Skills にそのままアップロードも可）:
+[Releases](https://github.com/nlink-jp/service-research/releases) から
+`service-research-vX.Y.Z.zip` をダウンロードし、登録する:
 
-```bash
-unzip service-research-vX.Y.Z.zip -d ~/.claude/skills/
-```
+- **アプリから**（Claude Desktop / claude.ai / モバイル）— スキル設定
+  （カスタマイズ → スキル）で zip を追加する。**この経路を推奨**。
+  スキルの保存場所が変わっても影響を受けない。
+- **Claude Code** — `unzip service-research-vX.Y.Z.zip -d ~/.claude/skills/`。
+  プロジェクト単位なら、プロジェクト内の `.claude/skills/` に展開する。
 
 チェックアウトから:
 
 ```bash
 make install
 ```
+
+リリース zip をビルドして**それを**展開するので、手元で動かすものと
+リリースが配るものが一致する。パッケージングの欠陥は利用者に届く前に
+手元のインストールを壊す。`make install DEST=/path/to/skills` で別の場所へ、
+`make uninstall` で削除。
 
 必要要件: Web アクセス（WebSearch/WebFetch）が有効な Claude Code、および同梱
 スクリプト用の `python3`（3.9+、stdlib のみ）。

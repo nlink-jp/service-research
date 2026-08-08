@@ -18,17 +18,25 @@ No GCP project, ADC, or Vertex AI cost anymore. (Design:
 
 ## Install
 
-From a release zip (also uploadable as-is to claude.ai → Settings → Skills):
+Download `service-research-vX.Y.Z.zip` from
+[Releases](https://github.com/nlink-jp/service-research/releases), then register it:
 
-```bash
-unzip service-research-vX.Y.Z.zip -d ~/.claude/skills/
-```
+- **In the app** (Claude Desktop, claude.ai, mobile) — add the zip from the
+  skill settings (Customize → Skills). Prefer this route; it survives changes
+  to where skills are stored on disk.
+- **Claude Code** — `unzip service-research-vX.Y.Z.zip -d ~/.claude/skills/`, or into a
+  project's `.claude/skills/` for a project-scoped install.
 
 From a checkout:
 
 ```bash
 make install
 ```
+
+That builds the release zip and unpacks *that*, so what you run is what a
+release ships — a packaging defect breaks your install rather than reaching
+users. `make install DEST=/path/to/skills` installs elsewhere;
+`make uninstall` removes it.
 
 Requirements: Claude Code with web access (WebSearch/WebFetch), and `python3`
 (3.9+, stdlib only) for the bundled validation/compile scripts.
